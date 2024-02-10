@@ -23,9 +23,12 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
 -- Buffers navigation
-vim.keymap.set("n", "H", ":bprev<CR>")
-vim.keymap.set("n", "L", ":bnext<CR>")
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>")
+vim.keymap.set("n", "H", ":bprev<CR>", { silent = true })
+vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
+
+-- For better experience
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Tmux navigation
 -- vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
