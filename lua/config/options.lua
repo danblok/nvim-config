@@ -46,8 +46,9 @@ vim.o.guicursor = "i-ci:blinkwait700-blinkoff400-blinkon250"
 -- Dont do backup
 vim.opt.backup = false
 
--- Sets undodir directory
+-- Sets undo settings
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 -- Include '@' char in filenames
 vim.opt.isfname:append("@-@")
@@ -61,3 +62,4 @@ vim.opt.completeopt = "menuone,noselect"
 
 -- Set background to dark
 vim.opt.background = "dark"
+

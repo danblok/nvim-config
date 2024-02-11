@@ -1,17 +1,28 @@
 return {
-	{ 
-		"folke/neoconf.nvim",
-		cmd = "Neoconf",
-	},
-	{ "folke/neodev.nvim" },
-	{
-		"tpope/vim-sleuth",
-	},
-	{
-		"neovim/nvim-lspconfig",
-		config = function()
-			local lspconfig = require("lspconfig")
-			lspconfig.clangd.setup({})
-		end,
-	},
+    -- Detect tabstop and shiftwidth automatically
+    { "tpope/vim-sleuth" },
+
+    -- Comment blocks
+    { "numToStr/Comment.nvim", opts = {} },
+
+    -- Indentation guides even on blank lines
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {
+            scope = {
+                show_start = false,
+            },
+        },
+    },
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+    },
+    {
+        "jesseduffield/lazygit",
+    },
 }

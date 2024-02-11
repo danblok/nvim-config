@@ -28,13 +28,16 @@ vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
 
 -- For better experience
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+-- Setup diagnostics keymap
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "[C]ode [D]iagnostics" })
 
 -- Tmux navigation
--- vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
--- vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
--- vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
--- vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
+vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
 
 -- Dap
 -- vim.keymap.set("n", "<F2>", ":lua require'dap'.step_over()<CR>")
