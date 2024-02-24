@@ -7,16 +7,30 @@ return {
             "williamboman/mason-lspconfig.nvim",
             { "j-hui/fidget.nvim", opts = {} },
             { "folke/neodev.nvim" },
+
+            "nanotee/sqls.nvim",
+        },
+        opts = {
+            diagnostics = {
+                text = {
+                    [vim.diagnostic.severity.ERROR] = " ",
+                    [vim.diagnostic.severity.WARN] = " ",
+                    [vim.diagnostic.severity.HINT] = " ",
+                    [vim.diagnostic.severity.INFO] = " ",
+                },
+            },
         },
         config = function()
             -- Diagnostics setup
             vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
             vim.lsp.handlers["textDocument/signatureHelp"] =
-                vim.lsp.with(vim.lsp.handlers.signatuer_help, { border = "rounded" })
+                vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
             vim.diagnostic.config({
                 float = { border = "rounded" },
             })
+
             require("lspconfig.ui.windows").default_opts({ border = "rounded" })
+            local builtin = require("telescope.builtin") -- Setup keymaps
 
             require("neodev").setup({})
 
@@ -31,12 +45,15 @@ return {
                 end
 
                 nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-                nmap("<leader>ca", function()
-                    vim.lsp.buf.code_action({ context = { only = { "quickfix", "refactor", "source" } } })
-                end, "[C]ode [A]ction")
+                nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
                 nmap("K", vim.lsp.buf.hover, "Hover Documentation")
                 nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
                 nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+                nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+                nmap("gi", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+                nmap("gr", builtin.lsp_references, "[G]oto [R]eferences")
+                nmap("<leader>ds", builtin.lsp_document_symbols, "[D]ocument [S]ymbols")
+                nmap("<leader>ws", builtin.lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
                 vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
                     vim.lsp.buf.format()
@@ -53,6 +70,12 @@ return {
                 },
                 clangd = {
                     filetypes = { "c", "cpp" },
+                },
+                docker_compose_language_service = {
+                    filetypes = { "yml", "yaml" },
+                },
+                sqls = {
+                    filetypes = { "sql" },
                 },
             }
 

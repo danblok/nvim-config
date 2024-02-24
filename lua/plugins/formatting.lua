@@ -4,7 +4,19 @@ return {
         opts = {
             formatters_by_ft = {
                 lua = { "stylua" },
-                go = { "goimports-reviser", "gofmt" },
+                go = { "goimports-reviser", "golines", "gofumpt" },
+                proto = { "buf" },
+                yaml = { "yamlfmt" },
+                sql = { "sqlfmt" },
+                sh = { "shfmt" },
+                bash = { "shfmt" },
+                javascript = { "prettierd" },
+            },
+            format_on_save = { timeout_ms = 500, lsp_fallback = true },
+            formatters = {
+                golines = {
+                    prepend_args = { "-m", "120" },
+                },
             },
         },
         config = function(_, opts)

@@ -19,10 +19,4 @@ return {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
-    {
-        "lewis6991/gitsigns.nvim",
-    },
-    {
-        "jesseduffield/lazygit",
-    },
 }

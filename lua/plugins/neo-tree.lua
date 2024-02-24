@@ -1,8 +1,5 @@
 return {
     {
-        "nvim-tree/nvim-web-devicons",
-    },
-    {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         dependencies = {
@@ -13,22 +10,27 @@ return {
         keys = {
             { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
         },
-        config = function()
-            require("neo-tree").setup({
-                window = {
-                    position = "current",
+        opts = {
+            window = {
+                position = "current",
+            },
+            default_component_configs = {
+                indent = {
+                    indent_size = 4,
+                    padding = 4,
                 },
-                default_component_configs = {
-                    indent = {
-                        indent_size = 4,
-                        padding = 4,
-                    },
-                },
-            })
+            },
+        },
+        config = function(_, opts)
+            require("neo-tree").setup(opts)
 
             -- Disable dark background
-            vim.cmd([[hi NeoTreeNormal guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE]])
-            vim.cmd([[hi NeoTreeEndOfBuffer guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE]])
+            vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none", fg = "none", ctermfg = "none", ctermbg = "none" })
+            vim.api.nvim_set_hl(
+                0,
+                "NeoTreeEndOfBuffer",
+                { bg = "none", fg = "none", ctermfg = "none", ctermbg = "none" }
+            )
         end,
     },
 }
