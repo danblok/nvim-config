@@ -25,7 +25,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Buffers navigation
 vim.keymap.set("n", "H", ":bprev<CR>", { silent = true })
 vim.keymap.set("n", "L", ":bnext<CR>", { silent = true })
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bd", ":bdelete!<CR>", { silent = true })
 
 -- For better experience
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
@@ -39,8 +39,5 @@ vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
 
--- Dap
--- vim.keymap.set("n", "<F2>", ":lua require'dap'.step_over()<CR>")
--- vim.keymap.set("n", "<F3>", ":lua require'dap'.step_into()<CR>")
--- vim.keymap.set("n", "<F4>", ":lua require'dap'.step_out()<CR>")
--- vim.keymap.set("n", "<F5>", ":lua require'dap'.continue()<CR>")
+-- Fixes delay in sql files on pressing Ctrl+c
+vim.g.ftplugin_sql_omni_key = "<C-j>"

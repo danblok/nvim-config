@@ -53,13 +53,16 @@ vim.opt.undofile = true
 -- Include '@' char in filenames
 vim.opt.isfname:append("@-@")
 
----- Sets leader key
---vim.g.mapleader = " "
---vim.g.maplocalleader = " "
-
 -- Better completition experience
 vim.opt.completeopt = "menuone,noselect"
 
--- Set background to dark
+-- Set background to dar
 vim.opt.background = "dark"
 
+vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
+
+-- Set tmp file to not be written
+vim.opt.buftype = "nofile"
