@@ -10,12 +10,22 @@ return {
                 sql = { "sqlfmt" },
                 sh = { "shfmt" },
                 bash = { "shfmt" },
-                javascript = { "prettierd" },
+                js = { "prettierd" },
+                html = { "prettierd" },
+                python = { "black", "isort" },
             },
             format_on_save = { timeout_ms = 500, lsp_fallback = true },
             formatters = {
                 golines = {
                     prepend_args = { "-m", "120" },
+                },
+                prettierd = {
+                    env = {
+                        string.format(
+                            "PRETTIERD_DEFAULT_CONFIG=%s",
+                            vim.fn.expand("~/.config/nvim/configs/.prettierrc.json")
+                        ),
+                    },
                 },
             },
         },

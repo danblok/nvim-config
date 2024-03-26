@@ -4,6 +4,7 @@ return {
         dependencies = {
             { "rcarriga/nvim-dap-ui", config = true },
             { "leoluz/nvim-dap-go", config = true },
+            { "nvim-neotest/nvim-nio" },
         },
         keys = {
             { "<F2>", ":lua require'dap'.step_over()<CR>", { desc = "Step over", silent = true } },

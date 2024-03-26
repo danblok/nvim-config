@@ -30,9 +30,6 @@ vim.keymap.set("n", "<leader>bd", ":bdelete!<CR>", { silent = true })
 -- For better experience
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- Setup diagnostics keymap
-vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "[C]ode [D]iagnostics" })
-
 -- Tmux navigation
 vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")

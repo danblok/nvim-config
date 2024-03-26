@@ -1,0 +1,20 @@
+{
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "bracketSpacing": true,
+    "printWidth": 60,
+    "overrides": [
+        {
+            "files": [
+                "*.json",
+                "*.jsonc",
+                ".prettierrc",
+                "*.md"
+            ],
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
+}

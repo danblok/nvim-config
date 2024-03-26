@@ -1,5 +1,6 @@
 return {
     "goolord/alpha-nvim",
+    enabled = false,
     opts = function()
         local header = { opts = { hl = "Type", position = "center" }, type = "text", val = {} }
         header.val = {

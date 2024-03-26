@@ -19,4 +19,11 @@ return {
         "christoomey/vim-tmux-navigator",
         lazy = false,
     },
+    {
+        "echasnovski/mini.surround",
+        version = "*",
+        config = function(_, config)
+            require("mini.surround").setup(config)
+        end,
+    },
 }
