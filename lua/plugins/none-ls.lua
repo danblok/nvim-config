@@ -22,6 +22,8 @@ return {
             opts.sources = vim.list_extend(opts.sources or {}, {
                 nls.builtins.code_actions.gomodifytags,
                 nls.builtins.code_actions.impl,
+                -- nls.builtins.code_actions.tsserver,
+                -- nls.builtins.diagnostics.tsserver,
                 nls.builtins.diagnostics.golangci_lint,
                 nls.builtins.diagnostics.hadolint,
                 nls.builtins.diagnostics.checkmake,

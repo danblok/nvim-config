@@ -11,6 +11,8 @@ return {
                 sh = { "shfmt" },
                 bash = { "shfmt" },
                 js = { "prettierd" },
+                ts = { "prettierd" },
+                json = { "prettierd" },
                 html = { "prettierd" },
                 python = { "black", "isort" },
             },

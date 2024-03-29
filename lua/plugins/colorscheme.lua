@@ -10,6 +10,7 @@ return {
             vim.api.nvim_set_hl(0, "@boolean", { fg = "#ea6962" })
             vim.api.nvim_set_hl(0, "@number", { fg = "Fg" })
             vim.api.nvim_set_hl(0, "@string.escape", { fg = "#7daea3" })
+            vim.api.nvim_set_hl(0, "Normal", { bg = "#292828" })
         end,
     },
 }
