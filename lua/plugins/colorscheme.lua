@@ -11,6 +11,7 @@ return {
             vim.api.nvim_set_hl(0, "@number", { fg = "#7daea3" })
             vim.api.nvim_set_hl(0, "@string.escape", { fg = "#7daea3" })
             vim.api.nvim_set_hl(0, "Normal", { bg = "#292828" })
+            vim.api.nvim_set_hl(0, "@float", { bg = "#7daea3" })
         end,
     },
 }
