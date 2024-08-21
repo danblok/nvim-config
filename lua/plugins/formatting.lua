@@ -2,9 +2,14 @@ return {
     {
         "stevearc/conform.nvim",
         opts = {
+            -- log_level = vim.log.levels.DEBUG,
             formatters_by_ft = {
                 lua = { "stylua" },
-                go = { "goimports-reviser", "golines", "gofumpt" },
+                go = {
+                    "gofumpt",
+                    "golines",
+                    "goimports-reviser",
+                },
                 proto = { "buf" },
                 yaml = { "yamlfmt" },
                 sql = { "sqlfmt" },
@@ -16,7 +21,10 @@ return {
                 html = { "prettierd" },
                 python = { "black", "isort" },
             },
-            format_on_save = { timeout_ms = 500, lsp_fallback = true },
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_format = "fallback",
+            },
             formatters = {
                 golines = {
                     prepend_args = { "-m", "120" },
