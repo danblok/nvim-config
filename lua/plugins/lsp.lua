@@ -88,7 +88,13 @@ return {
 
             require("mason").setup()
             mason_lspconfig.setup({
-                ensure_installed = { "lua_ls", "clangd" },
+                ensure_installed = {
+                    "lua_ls",
+                    "clangd",
+                    "gopls",
+                    "html",
+                    "bashls",
+                },
             })
 
             mason_lspconfig.setup_handlers({

@@ -1,8 +1,10 @@
 return {
     {
         "stevearc/conform.nvim",
+        dependencies = { "mason.nvim" },
+
         opts = {
-            -- log_level = vim.log.levels.DEBUG,
+            log_level = vim.log.levels.DEBUG,
             formatters_by_ft = {
                 lua = { "stylua" },
                 go = {
@@ -21,9 +23,13 @@ return {
                 html = { "prettierd" },
                 python = { "black", "isort" },
             },
+            default_format_opts = {
+                lsp_format = "fallback",
+                async = false,
+                quiet = false,
+            },
             format_on_save = {
                 timeout_ms = 500,
-                lsp_format = "fallback",
             },
             formatters = {
                 golines = {
@@ -40,10 +46,10 @@ return {
             },
         },
         config = function(_, opts)
-            vim.api.nvim_create_autocmd("BufWritePre", {
+            vim.api.nvim_create_autocmd({ "BufWritePre", "BufNewFile" }, {
                 pattern = "*",
                 callback = function(args)
-                    require("conform").format({ bufnr = args.buf })
+                    require("conform").format({ bufnr = args.buf or vim.api.nvim_get_current_buf() })
                 end,
             })
 

@@ -34,6 +34,7 @@ return {
                         "git_config",
                         "git_rebase",
                         "gitignore",
+                        "proto",
                     },
                     -- Auto install parser on unknown file type
                     auto_install = true,
