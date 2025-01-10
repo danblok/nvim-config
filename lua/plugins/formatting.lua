@@ -2,7 +2,6 @@ return {
     {
         "stevearc/conform.nvim",
         dependencies = { "mason.nvim" },
-
         opts = {
             log_level = vim.log.levels.DEBUG,
             formatters_by_ft = {
@@ -17,10 +16,10 @@ return {
                 sql = { "sqlfmt" },
                 sh = { "shfmt" },
                 bash = { "shfmt" },
-                js = { "prettierd" },
-                ts = { "prettierd" },
-                json = { "prettierd" },
-                html = { "prettierd" },
+                js = { "biome" },
+                ts = { "biome" },
+                json = { "biome" },
+                html = { "htmlbeautifier", "rustywind" },
                 python = { "black", "isort" },
             },
             default_format_opts = {

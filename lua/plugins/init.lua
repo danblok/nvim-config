@@ -37,4 +37,9 @@ return {
         },
         config = function() end,
     },
+    -- {
+    --     "fatih/vim-go",
+    --     config = function() end,
+    --     enable = false,
+    -- },
 }

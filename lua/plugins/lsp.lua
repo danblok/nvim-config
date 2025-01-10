@@ -33,6 +33,11 @@ return {
             { "j-hui/fidget.nvim", opts = {} },
             { "folke/neodev.nvim" },
             { "nanotee/sqls.nvim" },
+            {
+                "pmizio/typescript-tools.nvim",
+                dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+                opts = {},
+            },
         },
         opts = {
             diagnostics = {
@@ -94,6 +99,7 @@ return {
                     "gopls",
                     "html",
                     "bashls",
+                    "biome",
                 },
             })
 

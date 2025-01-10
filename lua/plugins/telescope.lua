@@ -27,9 +27,9 @@ return {
 
             -- Setup telescope
             require("telescope").setup({
-                defaults = {
-                    sorting_strategy = "descending",
-                },
+                -- defaults = {
+                --     sorting_strategy = "descending",
+                -- },
                 extensions = {
                     fzf = {
                         fuzzy = true,
