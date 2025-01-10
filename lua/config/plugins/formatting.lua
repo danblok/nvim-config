@@ -34,18 +34,10 @@ return {
                 golines = {
                     prepend_args = { "-m", "120" },
                 },
-                prettierd = {
-                    env = {
-                        string.format(
-                            "PRETTIERD_DEFAULT_CONFIG=%s",
-                            vim.fn.expand("~/.config/nvim/configs/.prettierrc.json")
-                        ),
-                    },
-                },
             },
         },
         config = function(_, opts)
-            vim.api.nvim_create_autocmd({ "BufWritePre", "BufNewFile" }, {
+            vim.api.nvim_create_autocmd({ "BufWritePre" }, {
                 pattern = "*",
                 callback = function(args)
                     require("conform").format({ bufnr = args.buf or vim.api.nvim_get_current_buf() })
