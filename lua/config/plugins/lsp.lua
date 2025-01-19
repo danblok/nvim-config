@@ -37,7 +37,7 @@ return {
                 "williamboman/mason.nvim",
                 config = true,
             },
-            { "williamboman/mason-lspconfig.nvim" },
+            { "williamboman/mason-lspconfig.nvim", config = function() end },
             {
                 "j-hui/fidget.nvim",
             },
@@ -62,6 +62,7 @@ return {
                 docker_compose_language_service = {
                     filetypes = { "yml", "yaml" },
                 },
+                dockerls = {},
                 sqls = {
                     filetypes = { "sql" },
                 },
@@ -70,13 +71,32 @@ return {
                 basedpyright = {},
                 bashls = {},
                 biome = {},
+                -- ts_ls = {},
                 html = {},
                 pbls = {},
                 templ = {},
+                cssls = {},
+                css_variables = {},
+                cssmodules_ls = {},
+                -- intelephense = {},
+                phpactor = {},
+                volar = {
+                    filetypes = {
+                        "typescript",
+                        "javascript",
+                        "javascriptreact",
+                        "typescriptreact",
+                        "vue",
+                    },
+                    init_options = {
+                        vue = {
+                            hybridMode = false,
+                        },
+                    },
+                },
             },
         },
         config = function(_, opts)
-            require("mason").setup()
             local lspconfig = require("lspconfig")
             for server, config in pairs(opts.servers) do
                 config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
@@ -84,14 +104,17 @@ return {
                 lspconfig[server].setup(config)
             end
 
-            -- vim.api.nvim_create_autocmd('LspAttach', {
+            require("mason").setup()
+            -- vim.api.nvim_create_autocmd("LspAttach", {
             --     callback = function(args)
             --         local client = vim.lsp.get_client_by_id(args.data.client_id)
-            --         if not client then return end
+            --         if not client then
+            --             return
+            --         end
             --
-            --         if client:supports_method('textDocument/formatting') then
+            --         if client:supports_method("textDocument/formatting") then
             --             -- Format the current buffer on save
-            --             vim.api.nvim_create_autocmd('BufWritePre', {
+            --             vim.api.nvim_create_autocmd("BufWritePre", {
             --                 buffer = args.buf,
             --                 callback = function()
             --                     vim.lsp.buf.format({ bufnr = args.buf, id = client.id })

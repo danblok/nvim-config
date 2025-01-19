@@ -18,9 +18,10 @@ return {
                 bash = { "shfmt" },
                 js = { "biome" },
                 ts = { "biome" },
+                vue = { "biome", "rustywind" },
                 json = { "biome" },
-                html = { "htmlbeautifier", "rustywind" },
                 python = { "black", "isort" },
+                php = { "tlint" },
             },
             default_format_opts = {
                 lsp_format = "fallback",
@@ -29,6 +30,7 @@ return {
             },
             format_on_save = {
                 timeout_ms = 500,
+                lsp_format = "fallback",
             },
             formatters = {
                 golines = {
@@ -36,15 +38,5 @@ return {
                 },
             },
         },
-        config = function(_, opts)
-            vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-                pattern = "*",
-                callback = function(args)
-                    require("conform").format({ bufnr = args.buf or vim.api.nvim_get_current_buf() })
-                end,
-            })
-
-            require("conform").setup(opts)
-        end,
     },
 }

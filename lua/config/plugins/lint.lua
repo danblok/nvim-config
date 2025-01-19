@@ -9,9 +9,10 @@ return {
                 hadolint = { "hadolint" },
                 make = { "checkmake" },
                 buf = { "buf_lint" },
-                js = { "biome" },
-                ts = { "biome" },
+                js = { "oxlint" },
+                ts = { "oxlint" },
                 sql = { "sqlfluff" },
+                php = { "tlint" },
             },
         },
         config = function(_, opts)
