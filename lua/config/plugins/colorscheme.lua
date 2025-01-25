@@ -1,17 +1,11 @@
 return {
     {
-        "navarasu/onedark.nvim",
+        "rmehri01/onenord.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            require("onedark").setup({
-                highlights = {
-                    ["@variable.parameter"] = { fg = "@variable" },
-                    ["@lsp.type.parameter"] = { fg = "@variable" },
-                    ["@function.builtin"] = { fg = "@function" },
-                },
-            })
-            vim.cmd.colorscheme("onedark")
+            require("onenord").setup()
+            vim.cmd.colorscheme("onenord")
         end,
     },
 }
