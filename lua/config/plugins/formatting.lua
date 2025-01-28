@@ -21,7 +21,8 @@ return {
                 vue = { "biome", "rustywind" },
                 json = { "biome" },
                 python = { "black", "isort" },
-                php = { "tlint" },
+                php = { "pint", "php_cs_fixer" },
+                blade = { "blade-formatter" },
             },
             default_format_opts = {
                 lsp_format = "fallback",

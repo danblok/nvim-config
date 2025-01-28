@@ -80,6 +80,7 @@ return {
                 cssmodules_ls = {},
                 -- intelephense = {},
                 phpactor = {},
+                tailwindcss = {},
                 volar = {
                     filetypes = {
                         "typescript",
