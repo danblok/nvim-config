@@ -5,7 +5,7 @@ return {
         "nvim-lua/plenary.nvim",
         {
             "nvim-telescope/telescope-fzf-native.nvim",
-            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release"
+            build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
         },
         {
             "nvim-telescope/telescope-ui-select.nvim",
@@ -24,6 +24,14 @@ return {
                     require("telescope.themes").get_dropdown({}),
                 },
             },
+            defaults = {
+                file_ignore_patterns = {
+                    "node_modules",
+                    "vendor",
+                    "storage/framework",
+                    "bootstrap",
+                },
+            },
         })
 
         require("telescope").load_extension("fzf")
@@ -39,9 +47,9 @@ return {
         vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch by [D]iagnostics" })
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp tags" })
         vim.keymap.set("n", "<space>en", function()
-            require("telescope.builtin").find_files {
-                cwd = vim.fn.stdpath("config")
-            }
+            require("telescope.builtin").find_files({
+                cwd = vim.fn.stdpath("config"),
+            })
         end, { desc = "[F]ind [H]elp tags" })
 
         require("config.plugins.telescope.multigrep").setup()
