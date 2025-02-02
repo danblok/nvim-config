@@ -13,6 +13,7 @@ return {
                 ts = { "oxlint" },
                 sql = { "sqlfluff" },
                 php = { "tlint" },
+                rs = { "bacon" },
             },
         },
         config = function(_, opts)

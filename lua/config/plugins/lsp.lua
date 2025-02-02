@@ -95,6 +95,7 @@ return {
                         },
                     },
                 },
+                rust_analyzer = {},
             },
         },
         config = function(_, opts)
