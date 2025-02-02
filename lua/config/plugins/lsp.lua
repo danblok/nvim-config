@@ -56,9 +56,6 @@ return {
                         diagnostics = { disable = { "missing-fields" } },
                     },
                 },
-                clangd = {
-                    filetypes = { "c", "cpp" },
-                },
                 docker_compose_language_service = {
                     filetypes = { "yml", "yaml" },
                 },
@@ -66,19 +63,12 @@ return {
                 sqls = {
                     filetypes = { "sql" },
                 },
-                gopls = {},
-                awk_ls = {},
-                basedpyright = {},
                 bashls = {},
                 biome = {},
-                -- ts_ls = {},
                 html = {},
-                pbls = {},
-                templ = {},
                 cssls = {},
                 css_variables = {},
                 cssmodules_ls = {},
-                -- intelephense = {},
                 phpactor = {},
                 tailwindcss = {},
                 volar = {
@@ -95,7 +85,6 @@ return {
                         },
                     },
                 },
-                rust_analyzer = {},
             },
         },
         config = function(_, opts)

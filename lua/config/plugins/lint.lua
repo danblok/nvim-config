@@ -4,16 +4,12 @@ return {
         opts = {
             events = { "BufWritePost", "BufReadPost", "InsertLeave" },
             linters_by_ft = {
-                go = { "golangcilint" },
                 bash = { "bash", "shellcheck" },
-                hadolint = { "hadolint" },
-                make = { "checkmake" },
-                buf = { "buf_lint" },
+                docker = { "hadolint" },
                 js = { "oxlint" },
                 ts = { "oxlint" },
                 sql = { "sqlfluff" },
                 php = { "tlint" },
-                rs = { "bacon" },
             },
         },
         config = function(_, opts)
