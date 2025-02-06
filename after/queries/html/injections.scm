@@ -22,6 +22,13 @@
     (attribute_value) @injection.content)
   (#set! injection.language "javascript"))
 
+(attribute
+  (attribute_name) @_attr
+    (#lua-match? @_attr ":%l")
+  (quoted_attribute_value
+    (attribute_value) @injection.content)
+  (#set! injection.language "javascript"))
+
 ; Blade escaped JS attributes
 ; <x-foo ::bar="baz" />
 (element
