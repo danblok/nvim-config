@@ -71,12 +71,8 @@ return {
             },
         },
         config = function(_, opts)
-            vim.filetype.add({
-                pattern = {
-                    [".*%.blade%.php"] = "blade",
-                },
-            })
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
             ---@diagnostic disable-next-line: inject-field
             parser_config.blade = {
                 install_info = {
@@ -86,6 +82,11 @@ return {
                 },
                 filetype = "blade",
             }
+            vim.filetype.add({
+                pattern = {
+                    [".*%.blade%.php"] = "blade",
+                },
+            })
 
             ---@diagnostic disable-next-line: missing-fields
             require("nvim-treesitter.configs").setup(opts)

@@ -9,7 +9,7 @@ return {
                 hadolint = { "hadolint" },
                 make = { "checkmake" },
                 buf = { "buf_lint" },
-                js = { "oxlint" },
+                js = { "oxlint", "biome" },
                 ts = { "oxlint" },
                 sql = { "sqlfluff" },
                 php = { "tlint" },

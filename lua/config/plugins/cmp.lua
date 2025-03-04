@@ -16,12 +16,12 @@ return {
                 },
             },
         },
+        cmdline = {
+            sources = {},
+        },
         keymap = {
             preset = "default",
             ["<CR>"] = { "accept", "fallback" },
-            cmdline = {
-                preset = "default",
-            },
         },
         appearance = {
             use_nvim_cmp_as_default = true,
@@ -29,7 +29,6 @@ return {
         },
         signature = { enabled = true },
         sources = {
-            cmdline = {},
             default = { "lazydev", "lsp", "path", "snippets", "buffer" },
             providers = {
                 lazydev = {

@@ -26,26 +26,12 @@ return {
             {
                 "folke/lazydev.nvim",
                 ft = "lua",
-                opts = {
-                    library = {
-                        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-                    },
-                },
+                opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
             },
             { "saghen/blink.cmp" },
-            {
-                "williamboman/mason.nvim",
-                config = true,
-            },
+            { "williamboman/mason.nvim", config = true },
             { "williamboman/mason-lspconfig.nvim", config = function() end },
-            {
-                "j-hui/fidget.nvim",
-            },
-            { "nanotee/sqls.nvim" },
-            {
-                "pmizio/typescript-tools.nvim",
-                dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-            },
+            { "j-hui/fidget.nvim" },
         },
         opts = {
             servers = {
@@ -64,12 +50,14 @@ return {
                 },
                 dockerls = {},
                 sqls = {
-                    filetypes = { "sql" },
+                    connections = {},
                 },
                 gopls = {},
                 awk_ls = {},
                 basedpyright = {},
-                bashls = {},
+                bashls = {
+                    filetypes = { "sh" },
+                },
                 biome = {},
                 -- ts_ls = {},
                 html = {},
@@ -82,9 +70,13 @@ return {
                 phpactor = {},
                 tailwindcss = {},
                 volar = {
-                    filetypes = {
-                        "vue",
-                    },
+                    -- filetypes = {
+                    --     "typescript",
+                    --     "javascript",
+                    --     "javascriptreact",
+                    --     "typescriptreact",
+                    --     "vue",
+                    -- },
                     init_options = {
                         vue = {
                             hybridMode = false,
@@ -92,6 +84,10 @@ return {
                     },
                 },
                 rust_analyzer = {},
+                csharp_ls = {
+                    verbose = false,
+                },
+                -- omnisharp = {},
             },
         },
         config = function(_, opts)

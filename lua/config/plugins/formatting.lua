@@ -25,6 +25,7 @@ return {
                 python = { "black", "isort" },
                 php = { "pint" },
                 blade = { "blade-formatter" },
+                csharp = { "csharpier" },
             },
             default_format_opts = {
                 lsp_format = "fallback",
@@ -32,7 +33,7 @@ return {
                 quiet = false,
             },
             format_on_save = {
-                timeout_ms = 500,
+                timeout_ms = 1000,
                 lsp_format = "fallback",
             },
             formatters = {
