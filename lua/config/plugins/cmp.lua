@@ -16,9 +16,6 @@ return {
                 },
             },
         },
-        cmdline = {
-            sources = {},
-        },
         keymap = {
             preset = "default",
             ["<CR>"] = { "accept", "fallback" },

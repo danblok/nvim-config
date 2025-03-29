@@ -48,6 +48,7 @@ return {
                 docker_compose_language_service = {
                     filetypes = { "yml", "yaml" },
                 },
+                ruff = {},
                 dockerls = {},
                 sqls = {
                     connections = {},
@@ -70,13 +71,11 @@ return {
                 phpactor = {},
                 tailwindcss = {},
                 volar = {
-                    -- filetypes = {
-                    --     "typescript",
-                    --     "javascript",
-                    --     "javascriptreact",
-                    --     "typescriptreact",
-                    --     "vue",
-                    -- },
+                    filetypes = {
+                        "typescript",
+                        "javascript",
+                        "vue",
+                    },
                     init_options = {
                         vue = {
                             hybridMode = false,

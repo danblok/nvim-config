@@ -58,3 +58,4 @@ vim.opt.completeopt = "menuone,noselect"
 
 -- Set background to dar
 vim.opt.background = "dark"
+vim.g.lazyvim_picker = "telescope"

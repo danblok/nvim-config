@@ -5,7 +5,7 @@ return {
         priority = 1000,
         config = function()
             require("onenord").setup()
-            -- vim.cmd.colorscheme("onenord")
+            vim.cmd.colorscheme("onenord")
         end,
     },
 }

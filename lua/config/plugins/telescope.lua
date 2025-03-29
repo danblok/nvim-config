@@ -46,6 +46,7 @@ return {
         vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "[F]ind [K]eymaps" })
         vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch by [D]iagnostics" })
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp tags" })
+        vim.keymap.set("n", "<leader>fs", builtin.lsp_dynamic_workspace_symbols, { desc = "[F]ind [S]ymbols" })
         vim.keymap.set("n", "<space>en", function()
             require("telescope.builtin").find_files({
                 cwd = vim.fn.stdpath("config"),
