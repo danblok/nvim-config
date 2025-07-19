@@ -30,12 +30,6 @@ vim.keymap.set("n", "<leader>bd", ":bdelete!<CR>", { silent = true })
 -- For better experience
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
--- Tmux navigation
-vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
-vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
-vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
-vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
-
 -- Quickfix
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>")
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
