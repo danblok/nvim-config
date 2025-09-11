@@ -7,6 +7,7 @@ return {
                 "lua",
                 "luadoc",
                 "vim",
+                "markdown",
                 "vimdoc",
                 "query",
                 "c",

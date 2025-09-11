@@ -10,4 +10,8 @@ return {
         },
         config = function() end,
     },
+    {
+        "christoomey/vim-tmux-navigator",
+        lazy = false,
+    },
 }

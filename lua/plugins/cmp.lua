@@ -1,5 +1,6 @@
 local menu = {
     draw = {
+        -- treesitter = { "lsp" },
         -- columns = { { "kind_icon" }, { "label", gap = 1 } },
         components = {
             -- label = {
@@ -49,11 +50,11 @@ local menu = {
 return {
     "saghen/blink.cmp",
     version = '*',
+    event = "InsertEnter",
     dependencies = {
         "rafamadriz/friendly-snippets",
         "onsails/lspkind.nvim",
     },
-
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
@@ -87,14 +88,14 @@ return {
             ["<CR>"] = { "accept", "fallback" },
         },
         appearance = {
-            use_nvim_cmp_as_default = true,
+            use_nvim_cmp_as_default = false,
             nerd_font_variant = "mono",
         },
         signature = {
             enabled = true,
         },
         sources = {
-            default = { "lsp", "lazydev", "path", "snippets", "buffer" },
+            default = { "lsp", "path", "lazydev", "snippets", "buffer" },
             providers = {
                 lazydev = {
                     name = "LazyDev",

@@ -36,3 +36,9 @@ vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>")
 
 -- Fixes delay in sql files on pressing Ctrl+c
 vim.g.ftplugin_sql_omni_key = "<C-j>"
+
+-- Tmux navigation
+vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")

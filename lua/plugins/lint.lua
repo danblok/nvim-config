@@ -14,6 +14,7 @@ return {
                 ts = { "oxlint" },
                 sql = { "sql-formatter" },
                 php = { "tlint" },
+                -- php = { "duster" },
                 rs = { "bacon" },
                 py = { "ruff" },
             },
