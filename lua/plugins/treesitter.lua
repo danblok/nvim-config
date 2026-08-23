@@ -2,6 +2,8 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
+        version = false,
+        opts_extend = { "ensure_installed" },
         opts = {
             ensure_installed = {
                 "lua",
@@ -11,7 +13,6 @@ return {
                 "vimdoc",
                 "query",
                 "c",
-                "cpp",
                 "javascript",
                 "typescript",
                 "bash",
@@ -54,9 +55,38 @@ return {
             indent = {
                 enable = true,
             },
+        },
+        config = function(_, opts)
+            local TS = require("nvim-treesitter")
+            TS.setup(opts)
+
+            local already_installed = TS.get_installed()
+
+            local to_install = vim
+                .iter(opts.ensure_installed)
+                :filter(function(parser) return not vim.tbl_contains(already_installed, parser) end)
+                :totable()
+
+            if #to_install > 0 then TS.install(to_install) end
+
+            vim.api.nvim_create_autocmd("FileType", {
+                group = vim.api.nvim_create_augroup("treesitter", { clear = true }),
+                callback = function()
+                    -- highlighting
+                    if vim.tbl_get(opts, "highlight", "enable") ~= false then
+                        pcall(vim.treesitter.start)
+                    end
+                end,
+            })
+        end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        branch = "main",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        opts = {
             textobjects = {
                 select = {
-                    enable = true,
                     lookahead = true,
                     keymaps = {
                         ["aa"] = "@parameter.outer",
@@ -76,29 +106,8 @@ return {
             },
         },
         config = function(_, opts)
-            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-
-            ---@diagnostic disable-next-line: inject-field
-            parser_config.blade = {
-                install_info = {
-                    url = "https://github.com/EmranMR/tree-sitter-blade",
-                    files = { "src/parser.c" },
-                    branch = "main",
-                },
-                filetype = "blade",
-            }
-            vim.filetype.add({
-                pattern = {
-                    [".*%.blade%.php"] = "blade",
-                },
-            })
-
-            ---@diagnostic disable-next-line: missing-fields
-            require("nvim-treesitter.configs").setup(opts)
+            TS = require("nvim-treesitter-textobjects")
+            TS.setup(opts)
         end,
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        dependencies = { "nvim-treesitter/nvim-treesitter" },
     },
 }

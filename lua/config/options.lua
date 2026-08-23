@@ -41,6 +41,7 @@ opt.wrap = false
 opt.splitbelow = true
 opt.splitright = true
 
+opt.autowrite = true
 -- Syns clipboards
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 

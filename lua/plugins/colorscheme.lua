@@ -22,4 +22,8 @@ return {
             vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { link = "CmpItemMenu" })
         end
     },
+    {
+        "xzbdmw/colorful-menu.nvim",
+        opts = {},
+    },
 }

@@ -42,3 +42,10 @@ vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
 vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
+
+-- Fzf-lua
+vim.keymap.set("n", "<leader>ff", function() require("fzf-lua").files() end, { desc = "[F]ind [F]iles" })
+vim.keymap.set("n", "<leader>sg", function() require("fzf-lua").live_grep() end, { desc = "[S]earch [G]rep" })
+
+-- Restart
+vim.keymap.set("n", "<leader>re", "<Cmd>restart<CR>")
